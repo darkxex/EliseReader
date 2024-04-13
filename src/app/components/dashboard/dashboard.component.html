@@ -1,0 +1,17 @@
+
+<div class="pt-4 pb-4">
+
+  <div *ngIf="item.paginado">
+    <div *ngFor="let x of  [].constructor(19); index as i">
+      <img  [src]="'https://visortmo.ws/uploads/manga/doctor-elise/chapters/56/'+(i + 1)+'.webp'" [ngClass]="item.expandir ? 'reader' : ''" [ngClass]="item.separar ? 'mb-4' : ''" class="mx-auto d-block img-fluid" alt="">
+    </div>
+  </div>
+
+  <div *ngIf="!item.paginado">
+
+      <img  [src]="'https://visortmo.ws/uploads/manga/doctor-elise/chapters/56/'+1+'.webp'" [ngClass]="item.expandir ? 'reader' : ''" [ngClass]="item.separar ? 'mb-4' : ''" class="mx-auto d-block img-fluid" alt="">
+
+  </div>
+
+
+</div>
