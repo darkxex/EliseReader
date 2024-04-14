@@ -54,6 +54,7 @@ selectedValue: any;
   }
 
   btnAnterior(){
+    window.scrollTo(0, 0);
     let indexNext = this.listchapter.indexOf(this.selectedValue) - 1;
     console.log("Valor: "+ indexNext);
     if (indexNext >=0 )
@@ -61,7 +62,9 @@ selectedValue: any;
 
    }
   chapteris()
-  {console.log(this.selectedValue);
+  {
+    window.scrollTo(0, 0);
+    console.log(this.selectedValue);
     this.router.navigateByUrl("chapter/"+ this.selectedValue);
   }
 
