@@ -13,15 +13,8 @@
 
           </a>
         </li>
-        <li *ngIf="opciones.paginado" class="nav-item">
+        <li  class="nav-item">
           <a class="nav-link" (click)="btnSeparar()" >{{txtSeparar}}</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Modo de Lectura</a>
-          <div class="dropdown-menu bg-primary">
-            <a class="dropdown-item" (click)="btnPaginadoOff()">Por páginas</a>
-            <a class="dropdown-item" (click)="btnPaginadoOn()" >Todo en una página</a>
-          </div>
         </li>
         <li class="nav-item">
           <a *ngIf="!fullScreen" class="nav-link " (click)="openFullscreen()">FullScreen +

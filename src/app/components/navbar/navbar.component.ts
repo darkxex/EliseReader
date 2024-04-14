@@ -70,14 +70,6 @@ export class NavbarComponent implements OnInit{
     this.txtSeparar = (this.opciones.separar ? "Unir" : "Separar");
   }
 
-  btnPaginadoOn() {
-    this.opciones.paginado = true;
-    this.parametros.emit(this.opciones);
-  }
 
-  btnPaginadoOff() {
-    this.opciones.paginado = false;
-    this.parametros.emit(this.opciones);
-  }
 
 }

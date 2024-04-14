@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ReaderClass } from 'src/app/interface/reader-class';
 import { PagesService } from 'src/app/services/pages.service';
@@ -13,16 +14,15 @@ export class DashboardComponent {
 
   item:any = {
     expandir:false,
-    separar:false,
-    paginado: false
+    separar:false
   };
 
- listchapter = new Array<string>;
+ listchapter = new Array<string>();
 
   chapterloaded = new Array<string>();
 selectedValue: any;
 
-  constructor(public pages: PagesService, private rutaActiva: ActivatedRoute, private router: Router) {
+  constructor(public pages: PagesService, private rutaActiva: ActivatedRoute, private router: Router, private titleService:Title) {
   }
 
   chapter: string = "0";
@@ -36,8 +36,9 @@ selectedValue: any;
       console.log(this.listchapter);
     this.rutaActiva.paramMap.subscribe((param) =>
       {
-       console.log("subs:"+ param.get('id'));
+        console.log("subs:"+ param.get('id'));
         this.chapter = param.get('id') || "0";
+        this.titleService.setTitle("EliseReader - Capítulo " + this.chapter);
         this.chapterloaded = this.pages.getPages(this.chapter);
         this.selectedValue = this.chapter;
       });
