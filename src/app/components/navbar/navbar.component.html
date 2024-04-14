@@ -8,25 +8,25 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto">
         <li *ngIf="opciones.paginado" class="nav-item">
-          <a class="nav-link" (click)="btnExpandir()" href="#">
+          <a class="nav-link" (click)="btnExpandir()" >
              {{txtExpandir}}
 
           </a>
         </li>
         <li *ngIf="opciones.paginado" class="nav-item">
-          <a class="nav-link" (click)="btnSeparar()" href="#">{{txtSeparar}}</a>
+          <a class="nav-link" (click)="btnSeparar()" >{{txtSeparar}}</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Modo de Lectura</a>
           <div class="dropdown-menu bg-primary">
-            <a class="dropdown-item" (click)="btnPaginadoOff()" href="#">Por páginas</a>
-            <a class="dropdown-item" (click)="btnPaginadoOn()" href="#">Todo en una página</a>
+            <a class="dropdown-item" (click)="btnPaginadoOff()">Por páginas</a>
+            <a class="dropdown-item" (click)="btnPaginadoOn()" >Todo en una página</a>
           </div>
         </li>
         <li class="nav-item">
-          <a *ngIf="!fullScreen" class="nav-link " (click)="openFullscreen()" href="#">FullScreen +
+          <a *ngIf="!fullScreen" class="nav-link " (click)="openFullscreen()">FullScreen +
           </a>
-          <a *ngIf="fullScreen" class="nav-link " (click)="closeFullscreen()" href="#">FullScreen -
+          <a *ngIf="fullScreen" class="nav-link " (click)="closeFullscreen()">FullScreen -
           </a>
         </li>
       </ul>

@@ -1,7 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
 import { ReaderClass } from 'src/app/interface/reader-class';
-
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -9,6 +8,8 @@ import { ReaderClass } from 'src/app/interface/reader-class';
 })
 
 export class NavbarComponent implements OnInit{
+
+
 @Output() parametros = new EventEmitter<any>();
 
   opciones = new ReaderClass;
@@ -19,11 +20,12 @@ export class NavbarComponent implements OnInit{
   elem: any;
   constructor(
           @Inject(DOCUMENT) private document: any
-      ) {
-  }
+      ) {}
   ngOnInit(): void {
+
       this.elem = document.documentElement;
   }
+
   openFullscreen() {
           if (this.elem.requestFullscreen) {
             this.elem.requestFullscreen();

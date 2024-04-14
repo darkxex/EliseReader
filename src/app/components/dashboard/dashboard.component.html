@@ -1,15 +1,41 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-2 pt-4">
+      <div>
+        <select class="form-select" id="exampleSelect1" (click)="chapteris()" [(ngModel)]="selectedValue">
+
+          <option *ngFor="let x of [].constructor(144); index as i">{{i}}</option>
+          <option>143.2</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+
+  </div>
 
 <div class="pt-4 pb-4">
 
+  <div *ngIf="chapterloaded.length == 0" class="d-flex justify-content-center">
+    <div class="sk-folding-cube">
+      <div class="sk-cube1 sk-cube"></div>
+      <div class="sk-cube2 sk-cube"></div>
+      <div class="sk-cube4 sk-cube"></div>
+      <div class="sk-cube3 sk-cube"></div>
+    </div>
+</div>
+
   <div *ngIf="item.paginado">
-    <div *ngFor="let x of  [].constructor(19); index as i">
-      <img  [src]="'https://visortmo.ws/uploads/manga/doctor-elise/chapters/56/'+(i + 1)+'.webp'" [ngClass]="item.expandir ? 'reader' : ''" [ngClass]="item.separar ? 'mb-4' : ''" class="mx-auto d-block img-fluid" alt="">
+    <div *ngFor="let x of  chapterloaded; index as i">
+      <img [src]="x" [ngClass]="item.expandir ? 'reader' : ''" [ngClass]="item.separar ? 'mb-4' : ''"
+        class="mx-auto d-block img-fluid" alt="">
     </div>
   </div>
 
   <div *ngIf="!item.paginado">
 
-      <img  [src]="'https://visortmo.ws/uploads/manga/doctor-elise/chapters/56/'+1+'.webp'" [ngClass]="item.expandir ? 'reader' : ''" [ngClass]="item.separar ? 'mb-4' : ''" class="mx-auto d-block img-fluid" alt="">
+    <img [src]="chapterloaded[0]" [ngClass]="item.expandir ? 'reader' : ''" [ngClass]="item.separar ? 'mb-4' : ''"
+      class="mx-auto d-block img-fluid" alt="">
 
   </div>
 
