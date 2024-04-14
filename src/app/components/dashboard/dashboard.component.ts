@@ -17,19 +17,23 @@ export class DashboardComponent {
     paginado: false
   };
 
-
+ listchapter = new Array<string>;
 
   chapterloaded = new Array<string>();
 selectedValue: any;
 
   constructor(public pages: PagesService, private rutaActiva: ActivatedRoute, private router: Router) {
-    let _value = this.rutaActiva.snapshot.params;
-    console.log (_value);
   }
 
   chapter: string = "0";
   ngOnInit() {
+      this.listchapter = [];
+      for (let index = 0; index < 144; index++) {
+        this.listchapter.push(index + "");
 
+      }
+      this.listchapter.push("143.2");
+      console.log(this.listchapter);
     this.rutaActiva.paramMap.subscribe((param) =>
       {
        console.log("subs:"+ param.get('id'));
@@ -41,6 +45,21 @@ selectedValue: any;
 
   }
 
+  btnSiguiente(){
+   let indexNext = this.listchapter.indexOf(this.selectedValue) + 1;
+   console.log("Valor: "+ indexNext);
+   if (indexNext < this.listchapter.length)
+   this.router.navigateByUrl("chapter/"+ this.listchapter[indexNext]);
+
+  }
+
+  btnAnterior(){
+    let indexNext = this.listchapter.indexOf(this.selectedValue) - 1;
+    console.log("Valor: "+ indexNext);
+    if (indexNext >=0 )
+    this.router.navigateByUrl("chapter/"+ this.listchapter[indexNext]);
+
+   }
   chapteris()
   {console.log(this.selectedValue);
     this.router.navigateByUrl("chapter/"+ this.selectedValue);
